@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+        <h2 class="display-6"> Создайте новый счетчик </h2>
+{{ form.as_p }}
+{% csrf_token %}
+    <button class="btn btn-outline-primary"> Сохранить </button>
+</form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br>
+    <div>Обзор информации по счетчику </div> <a href="{{service.get_update_url}}" class="btn btn-outline-primary mb-3"> Изменить </a>
+
+    <div class="col-md-5">
+    <table class="table table-striped">
+  <thead>
+    <tr>  <td> <b>{{ service.service_name }} </td> </tr>
+    <tr>  <td> {{ service.site }} </td> </tr>
+    <tr>  <td> {{ service.personal_account }} </td>  </tr>
+  </thead>
+    </table> </div>
+{% endblock %}

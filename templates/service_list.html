@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3> ваши счетчики </h3>
+{% for s in service_list %}
+<div class="card" >
+  <div class="card-body">
+    <h5 class="card-title"> {{ s.service_name }} </h5>
+    <h6 class="card-subtitle mb-2 text-muted"> {{ s.personal_account}} </h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="{{ s.get_absolute_url }}" class="btn btn-primary mb-3"> Информация про счетчик </a>
+    <a href="#" class="btn btn-primary mb-3">Изменить</a>
+  </div>
+</div>
+    <br>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+    <form>
+<input type="text" name="content__icontains" class="form-control" placeholder="Поиск по новостям" id="content__icontains" value='{{ request.GET.search }}'>
+            <button id='search' type="submit" class="btn btn-primary mb-3" > Поиск </button>
+</form>
+
+    {% for n in news_list %}
+
+    {% endfor %}
+
+<div id="target-div"> </div>
+<script>
+
+function renderCard(post){
+    return ` <div class="card">
+            <div class="card-body">
+                <small class="text-muted"> ${ post.date_posted } </small>
+                ${ post.title }
+                <p class="article-content"> ${ post.content }</p>
+            </div>
+        </div>
+    <hr>
+    `
+    }
+async function getData(){
+    let content__icontains = document.getElementById('content__icontains').value
+    let params ={content__icontains,}
+    let data = (await axios.get('/news/json', {params})).data
+    let el = document.getElementById('target-div')
+    let tmp = ''
+    for (let n of data){
+        tmp += renderCard(n)
+    }
+    el.innerHTML = tmp
+    console.log('async')
+    console.log(data)
+}
+let input_element = document.getElementById('content__icontains')
+input_element.oninput=getData
+getData()
+</script>
+{% endblock content %}

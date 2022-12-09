@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{%  block content %}
+    <br>
+    <div class="container">
+    <h2> Здравствуйте, {{  request.user }}! </h2> </div>
+    <br>
+        <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-9">
+<div class="card text-center">
+  <div class="card-header">
+    Главное сегодня
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Передать показания счетчиков</h5>
+    <p class="card-text">Все счетчики (электричество, вода, газ и т.д.) в одном месте</p>
+    <a href="{% url 'transfer' %}" class="btn btn-primary">Передать показания</a>
+  </div>
+  <div class="card-footer text-muted">
+    Рекомендуем передавать показания с 10 по 20 число месяца
+  </div>
+</div>
+    <br>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card text-center h-100">
+      <div class="card-body">
+        <h5 class="card-title">Новости Управляющей компании</h5>
+        <p class="card-text">Отслеживайте уведомления от отключениях, изменениях</p>
+        <a href="{% url 'news' %}" class="btn btn-primary">Новости УК</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card text-center h-100">
+      <div class="card-body">
+        <h5 class="card-title-muted">Статистика расхода</h5>
+        <p class="card-text-muted">Контролируйте статистику потребления</p>
+        <a href="#" class="btn btn-primary disabled">К графикам</a>
+      </div>
+    </div>
+  </div>
+</div>
+                    </div>
+        <div class="col-md-3">
+          <div class="content-section">
+            <h3> Обновления проекта </h3>
+            <p class='text-muted'>Здесь будут появляться сообщения о новых функциях и улучшениях
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light"> Добавлен поиск по тексту Новостей, попробуйте! </li>
+                <li class="list-group-item list-group-item-light"> Добавлен раздел с Новостями УК. Узнавайте об отключениях и объявлениях </li>
+                <li class="list-group-item list-group-item-light"> Проект запущен. Добро пожаловать!  </li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 class="display-6"> Измените параметры счетчика </h2>
+
+<form method="post">
+{{ form.as_p }}
+{% csrf_token %}
+    <button class="btn btn-outline-primary"> Изменить </button>
+</form>
+{% endblock %}

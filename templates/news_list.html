@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <form>
+<input type="text" name="content__icontains" class="form-control" placeholder="Поиск по новостям" id="id_service_name__icontains" value='{{ request.GET.search }}'>
+            <button id='search' type="submit" class="btn btn-primary mb-3" > Поиск </button>
+</form>
+
+    {% for n in new %}
+        <div class="card">
+            <div class="card-body">
+                <small class="text-muted">{{ n.date_posted|date:"F d, Y" }}</small>
+                {{ n.title }}
+                <p class="article-content">{{ n.content }}</p>
+
+             </div>
+        </div>
+<hr>
+    {% endfor %}
+{% endblock content %}

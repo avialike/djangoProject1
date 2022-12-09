@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{%  block content%}
+    <br>
+    <h2> Выберите счетчики </h2>
+    <br>
+    <form>
+<a href="{% url 'ser_create' %}" class="btn btn-primary mb-3"> Создать новый счетчик </a>
+<a href="{{service.get_edit_url}}" class="btn btn-primary mb-3"> Изменить счетчик </a>
+    <input name="search" class="form-control" placeholder="Поиск по названию" value="{{ request.GET.search }}">
+    <button class="btn btn-primary"> Поиск </button>
+    </form>
+    <table class="table table-hover table-bordered"> <thead>
+    <tr>
+        <th>Название счетчика</th>
+        <th>Предыдущее показание</th>
+        <th>Дата предыдущего</th>
+        <th>Введите значение</th>
+    </tr>
+    </thead>
+        <tbody>
+        {% for data in service_list %}
+        <tr>
+            <td> {{ data.service_name }}</td>
+            <td> {{ data.value }}</td>
+            <td> {{ data.date }}</td>
+            <td> </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div>
+    <form> {{ form.as_p }}
+        <button type="submit" class="btn btn-primary mb-3"> Отправить </button>
+    </form></div>
+{% endblock %}
